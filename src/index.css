@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #6c25ff;
+  --purple-light: #c2a8fd;
+  --pink: #ee82c3;
+  --dark: #1d2226;
+  --gray: #919191;
+  --border: #cbcbcb;
+  --bg: #f7f8f9;
+  --white: #ffffff;
+  --red: #e04a2f;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #e5e5e5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-shell {
+  width: 375px;
+  min-height: 812px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+/* Screen base */
+.screen {
+  width: 100%;
+  min-height: 812px;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 24px 32px;
+  background: var(--bg);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Typography */
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #5a1ee0; }
+.btn-primary:disabled { background: var(--border); cursor: not-allowed; }
+
+.btn-secondary {
+  width: 100%;
+  padding: 16px;
+  background: var(--purple-light);
+  color: var(--dark);
+  border: none;
+  border-radius: 6px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: #b094f8; }
+
+/* Input fields */
+.field {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.field label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--purple);
+  background: var(--white);
+  padding: 0 4px;
+  z-index: 1;
+}
+
+.field label.required::after {
+  content: ' *';
+  color: var(--red);
+}
+
+.field input {
+  width: 100%;
+  padding: 14px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  color: var(--dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field input:focus { border-color: var(--purple); }
+.field input::placeholder { color: var(--gray); }
